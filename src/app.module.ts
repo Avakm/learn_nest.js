@@ -14,9 +14,20 @@ import {
   LoggerMiddleware,
   logger,
 } from './common/middleware/logger.middlleware';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [CatsModule],
+  imports: [
+    TypeOrmModule.forRoot({
+      type:'mysql',
+      host:'localhost',
+      port:3306,
+      username:'root',
+      password:'root',
+      database:'test',
+      entities:[],
+      synchronize: true,
+    }),CatsModule],
   controllers: [AppController],
   providers: [
     AppService,
