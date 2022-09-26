@@ -16,6 +16,10 @@ import {
 } from './common/middleware/logger.middlleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+//user实体
+import { User } from './user/entity/user.entity'
+
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -25,7 +29,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username:'root',
       password:'root',
       database:'test',
-      entities:[],
+      entities:[User],
       synchronize: true,
     }),CatsModule],
   controllers: [AppController],
